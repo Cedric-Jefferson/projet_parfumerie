@@ -3,8 +3,8 @@ include_once('../../scripts/php/cookie.php');
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
+	<head>
+		<meta charset="utf-8" />
         <title>Comparfum</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> 
@@ -16,11 +16,16 @@ include_once('../../scripts/php/cookie.php');
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		<script src="javascript.js"></script>
+		<link type="text/css" href="../../styles/index.css" rel="stylesheet" />
+    	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
-	<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-primary d-flex bd-highlight">
+<body>
+	
+<nav class="navbar navbar-expand-lg navbar-light bg-primary d-flex bd-highlight">
 		<div>
-			<img src="logo_parfumerie.png" alt="logo_parfumerie" class="img-thumbnail" style="background-color: dodgerblue;">
+            <img onClick = "location.href='accueil.php'" src="../../assets/logo_parfumerie.png" alt="logo_parfumerie" class="img-thumbnail" style="background-color: dodgerblue;"> 
 		</div>
 		<div>
 			<h1 style="margin:10px; color:white; font-size: 60px; font-family:Arial, Helvetica, sans-serif;">Comparfum</h1>
@@ -30,7 +35,7 @@ include_once('../../scripts/php/cookie.php');
 			<span class="navbar-toggler-icon"></span>
 		</button>
 			<div class="p-2 w-100 bd-highlight">
-				<form class="form-inline" method="POST" action="recherche.php">
+				<form class="form-inline" method="POST" action="pages/php/recherche.php">
 					<div class=" d-flex w-100">
 						<input class="form-control mr-sm-2 w-100 p-3"  type="search" placeholder="Search" aria-label="Search" name="mot" >
 						<button  class="btn btn-default" type="submit">
@@ -44,19 +49,24 @@ include_once('../../scripts/php/cookie.php');
 			<div class="p-2 flex-shrink-1 bd-highlight navbar-expand-lg">
 				<ul class="navbar-nav ">
 					<li class="nav-item" style="margin:10px;">
-						<button type="button" class="btn btn-default">
-						<span class="glyphicon glyphicon-user"></span>
-						</button>
+						<a href="pages/php/connexion.php">
+							<button type="button" class="btn btn-default">
+								<span class="glyphicon glyphicon-user"></span>
+							</button>
+						</a>
 					</li>
 					<li class="nav-item mr-sm-2 " style="margin:10px;">
-						<button type="button" class="btn btn-default btn float-right">
-						<span class="glyphicon glyphicon-shopping-cart"></span>
-						</button>
+						<a href="pages/php/connexion.php">
+							<button type="button" class="btn btn-default btn float-right">
+								<span class="glyphicon glyphicon-shopping-cart"></span>
+							</button>
+						</a>
 					</li>
 				</ul>
 			</div>
 
 	</nav>
+
 	<div class="d-flex justify-content-center">
 		<div id="carouselExampleCaptions" class="carousel slide "  data-ride="carousel" style="max-width:500px; max-hight: 500px;">
 		  <ol class="carousel-indicators">
@@ -66,15 +76,15 @@ include_once('../../scripts/php/cookie.php');
 		  </ol>
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
-			  <img src="img2.jpg" class="d-block w-100"  alt="...">
+			  <img src="../../assets/img2.jpg" class="d-block w-100"  alt="...">
 	
 			</div>
 			<div class="carousel-item">
-			  <img src="sauvage-parfum.jpg" class="d-block w-100" alt="...">
+			  <img src="../../assets/sauvage-parfum.jpg" class="d-block w-100" alt="...">
 			 
 			</div>
 			<div class="carousel-item">
-			  <img src="img3.jpg" class="d-block w-100" alt="...">
+			  <img src="../../assets/img3.jpg" class="d-block w-100" alt="...">
 			</div>
 		  </div>
 		  <a class="carousel-control-prev bg-secondary" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -91,7 +101,7 @@ include_once('../../scripts/php/cookie.php');
   
 		<?php
 		
-		include("Login.php");
+		include_once("login.php");
 		$Connect = mysqli_connect($Server, $User, $Pwd, $DB);
 		if( isset( $_POST['panier'] ) ){
 			$Produit = $_POST['nom_produit'];

@@ -1,5 +1,6 @@
 <?php
 include_once('../../scripts/php/cookie.php'); 
+include_once('entete.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,15 +12,17 @@ include_once('../../scripts/php/cookie.php');
 </head>
 <body>
 
+<center>
+
 <h2>Page admin</h2>
 <br/>
 
 <h3>Gestion des produits</h3>
-
+</center>
 <a href="admin.php">Retour</a>
 
 <form name="myform5">
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+  <input type="text" id="myInput" onKeyUp="myFunction()" placeholder="Search for names.." title="Type in a name">
 </form>
 <br>
 
@@ -69,13 +72,13 @@ include_once('../../scripts/php/cookie.php');
                   <td><?php echo $data["description"]; ?></td>
                   <td><?php echo $data["qtestock"]; ?></td>
                   <td><img class="image" src="../../<?php echo $data["image"]; ?>" style="width:30%"></td>
+                  <td><?php echo $data["genre"]; ?></td>
                   <td>
                     <form name="myform6" action="admin_produits.php" method="post">
                       <input type="submit" id="supp_id" name="supp2" value="Supprimer">
                       <input type="hidden" id="produit_id" name="supp_produit" value="<?php echo $data["id_produit"]; ?>">
                     </form>
                   </td>
-                  <td><?php echo $data["genre"]; ?></td>
                 </tr>
             <?php
             }
@@ -142,13 +145,13 @@ include_once('../../scripts/php/cookie.php');
             <input type="number" name="volume">
             <br>
             Fournisseur:<br>
-            <input type="number" name="fournisseur">
+            <input type="number" name="id_fournisseur">
             <br>
             Quantité en stock:<br>
             <input type="number" name="qtestock">
             <br>
             Genre:<br>
-            <select name="mode">
+            <select name="genre">
               <option value="Homme">Homme</option>
               <option value="Femme">Femme</option>
               <option value="Tous">Tous</option>
@@ -164,7 +167,7 @@ include_once('../../scripts/php/cookie.php');
           </div>';
         }
 
-        if (isset($_POST["nom_produit"]) AND isset($_POST["type"]) AND isset($_POST["description"]) AND isset($_POST["type"]) AND isset($_POST["volume"]) AND isset($_POST["id_fournisseur"]) AND isset($_POST["description"]) AND isset($_POST["qtestock"]) AND isset($_POST["image"]) AND isset($_POST["genre"])) {
+        if (isset($_POST["nom_produit"]) AND isset($_POST["type"]) AND isset($_POST["description"]) AND isset($_POST["volume"]) AND isset($_POST["id_fournisseur"]) AND isset($_POST["qtestock"]) AND isset($_POST["image"]) AND isset($_POST["genre"])) {
           //Récupération depuis le formulaire des variables à traiter et stocker dans la base données
           echo '<script>alert("Test")</script>';
       
@@ -181,7 +184,7 @@ include_once('../../scripts/php/cookie.php');
               $bdd2=new PDO($dsn,$user,$password);
               $bdd2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               $req = $bdd2->prepare('INSERT INTO produits (nom_produit, type, volume, id_fournisseur, description, qtestock, image, genre) 
-              VALUES (:nom_produit, :type, :volume, :id_fournisseur, :description, :qtestock, :image)');
+              VALUES (:nom_produit, :type, :volume, :id_fournisseur, :description, :qtestock, :image, :genre)');
               $req->bindParam(':nom_produit', $nom_produit);
               $req->bindParam(':type', $type);
               $req->bindParam(':volume', $volume);

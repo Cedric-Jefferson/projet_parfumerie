@@ -1,5 +1,6 @@
 <?php
 include_once('../../scripts/php/cookie.php'); 
+include_once('entete.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,14 +12,18 @@ include_once('../../scripts/php/cookie.php');
 </head>
 <body>
 
+<center>
+
 <h2>Page admin</h2>
 <br/>
 
 
 <h3>Gestion des utilisateurs</h3>
 
+<a href="admin.php">Retour</a>
+</center>
 <form name="myform">
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+  <input type="text" id="myInput" onKeyUp="myFunction()" placeholder="Search for names.." title="Type in a name">
 </form>
 <br>
 
@@ -47,8 +52,6 @@ include_once('../../scripts/php/cookie.php');
               <th>password</th>
               <th>date_de_naissance</th>
               <th>email</th>
-              <th>id_usr_forum</th>
-              <th>id_session</th>
               <th>
                 <form name="myform3" action="admin_users.php" method="post">
                       <input type="submit" id="ajout_id" name="ajout_user" value="Ajouter">
@@ -67,8 +70,6 @@ include_once('../../scripts/php/cookie.php');
                   <td><?php echo $data["password"]; ?></td>
                   <td><?php echo $data["date_de_naissance"]; ?></td>
                   <td><?php echo $data["email"]; ?></td>
-                  <td><?php echo $data["id_usr_forum"]; ?></td>
-                  <td><?php echo $data["id_session"]; ?></td>
                   <td>
                     <form name="myform2" action="admin_users.php" method="post">
                       <input type="submit" id="supp_id" name="supp1" value="Supprimer">
