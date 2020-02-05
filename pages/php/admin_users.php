@@ -17,8 +17,6 @@ include_once('../../scripts/php/cookie.php');
 
 <h3>Gestion des utilisateurs</h3>
 
-<a href="admin.php">Retour</a>
-
 <form name="myform">
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 </form>
@@ -177,6 +175,8 @@ include_once('../../scripts/php/cookie.php');
 
 ?>
 
+<br>
+<a href="admin.php">Retour</a>
 <br>
 <br>
 <br>

@@ -8,7 +8,7 @@ if (isset($_POST['num_adherent']) and isset($_POST['password'])) {
     $num_adherent = $_POST['num_adherent'];
 
     $bdd=null;
-    $dsn = 'mysql:dbname=lparfurmerie;host=127.0.0.1';
+    $dsn = 'mysql:dbname=parfurmerie;host=127.0.0.1';
     $user = 'root';
     $password = '';
     $delai = 0;
